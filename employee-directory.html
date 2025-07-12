@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Directory</title>
+    <link rel="stylesheet" href="src/main/resources/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header with Navbar -->
+        <div class="header">
+            <div class="header-left">
+                <h1>Employee Directory</h1>
+                
+                <div class="navbar-controls">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Search by name or email...">
+                        <span class="search-icon">🔍</span>
+                    </div>
+                    
+                    <button id="filterToggle" class="filter-toggle-btn">
+                        <span>🔍</span> Filters
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Employee Button - Below navbar on left -->
+        <div class="add-employee-section">
+            <button class="add-employee-btn" onclick="showAddForm()">+ Add Employee</button>
+        </div>
+
+        <!-- Filter Panel - Right Side -->
+        <div id="filterPanel" class="filter-panel">
+            <h3>🔍 Filter Employees</h3>
+            
+            <div class="filter-group">
+                <label for="filterFirstName">First Name:</label>
+                <input type="text" id="filterFirstName" placeholder="Enter first name...">
+            </div>
+            
+            <div class="filter-group">
+                <label for="filterDepartment">Department:</label>
+                <select id="filterDepartment">
+                    <option value="">All Departments</option>
+                    <!-- Options will be populated by JavaScript -->
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="filterRole">Role:</label>
+                <select id="filterRole">
+                    <option value="">All Roles</option>
+                    <!-- Options will be populated by JavaScript -->
+                </select>
+            </div>
+            
+            <div class="filter-actions">
+                <button class="btn-apply" onclick="applyFilters()">Apply Filters</button>
+                <button class="btn-reset" onclick="resetFilters()">Reset All</button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Main Content -->
+            <div class="content-left" id="contentLeft">
+                <!-- Controls -->
+                <div class="controls">
+                    <label for="sortBy">Sort by:</label>
+                    <select id="sortBy">
+                        <option value="">-- Select --</option>
+                        <option value="firstName">First Name</option>
+                        <option value="lastName">Last Name</option>
+                        <option value="department">Department</option>
+                        <option value="role">Role</option>
+                    </select>
+                    
+                    <label for="showEntries">Show:</label>
+                    <select id="showEntries">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="all">All</option>
+                    </select>
+                </div>
+
+                <!-- Employee Grid -->
+                <div id="employeeGrid" class="employee-grid">
+                    <!-- Employee cards will be rendered here -->
+                </div>
+
+                <!-- Empty State -->
+                <div id="emptyState" class="empty-state hidden">
+                    <h3>No employees found</h3>
+                    <p>No employees match your search criteria. Try adjusting your filters or search terms.</p>
+                    <button class="add-employee-btn" onclick="showAddForm()">+ Add First Employee</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            © 2025 Employee Directory System. All rights reserved.
+        </div>
+    </div>
+
+    <!-- Add/Edit Employee Modal -->
+    <div id="formModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="formTitle">Add Employee</h2>
+                <button class="close-btn" onclick="hideForm()">&times;</button>
+            </div>
+            
+            <form id="employeeForm">
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" required placeholder="Enter first name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" name="lastName" required placeholder="Enter last name">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="employee@company.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Department *</label>
+                        <select id="department" name="department" required>
+                            <option value="">Select Department</option>
+                            <option value="HR">Human Resources</option>
+                            <option value="IT">Information Technology</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Sales">Sales</option>
+                            <option value="Operations">Operations</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="role">Job Role *</label>
+                    <select id="role" name="role" required>
+                        <option value="">Select Role</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Developer">Developer</option>
+                        <option value="Analyst">Analyst</option>
+                        <option value="Designer">Designer</option>
+                        <option value="Coordinator">Coordinator</option>
+                        <option value="Specialist">Specialist</option>
+                        <option value="Director">Director</option>
+                    </select>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="hideForm()">Cancel</button>
+                    <button type="submit" class="btn-primary">Add Employee</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="src/main/resources/static/js/data.js"></script>
+    <script src="src/main/resources/static/js/app.js"></script>
+</body>

@@ -202,25 +202,6 @@ The application is fully responsive across all device sizes:
 - **Caching**: Client-side caching for better performance
 - **PWA Features**: Offline functionality and installable app
 
-## 📸 Screenshots
-
-*Note: Add screenshots of your application here*
-
-### Desktop Dashboard
-![Desktop Dashboard View](screenshots/desktop-dashboard.png)"C:\Users\sunkara pavan\OneDrive\Desktop\desktop view.jpg"
-
-
-*Main dashboard showing employee grid with filters and search*
-
-### Mobile Responsive
-![Mobile View](screenshots/mobile-view.png)
-*Responsive mobile interface with touch-optimized controls*
-
-### Employee Form
-![Add/Edit Form](screenshots/employee-form.png)
-*Modal form with validation and error handling*
-
-## 🎯 Assignment Reflection
 
 ### Challenges Faced
 
